@@ -59,6 +59,9 @@ var Formula = function(arg) {
 
 };
 
-if (typeof exports !== 'undefined')
+if (typeof exports !== 'undefined') {
     exports.Formula = Formula;
+} else {
+    window.Formula = Formula;
+}
 

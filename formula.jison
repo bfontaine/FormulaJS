@@ -30,18 +30,18 @@
 %left 'TIMES' 'DIVIDE'
 %left 'POW'
 
-%start formule
+%start formula
 
 %%
 
-formule
+formula
   : expression EOF
       { 
         var fs = require('fs');
 
         var file_name = process.argv.slice(2) + ".js";
 
-        var content = "var _f = require('formulelib');console.log("+$1+".toString());";
+        var content = "var _f = require('formulalib');console.log("+$1+".toString());";
 
         fs.writeFile(file_name, content, function(err) {
             if(err) {
@@ -77,7 +77,7 @@ expression
         { $$ = '(' + $2 + ')' }
     
     | value
-        { $$ = '(new _f.Formule(' + $1 + '))' }
+        { $$ = '(new _f.Formula(' + $1 + '))' }
     
     | expression 'PLUS' expression
         { $$ = $1 + ".add(" + $3 + ")" }

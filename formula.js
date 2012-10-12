@@ -1,8 +1,8 @@
 /* Jison generated parser */
-var formule = (function(){
+var formula = (function(){
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"formule":3,"expression":4,"EOF":5,"value":6,"number":7,"variable":8,"NUMBER":9,"VARIABLE":10,"OPEN_BRACKET":11,"CLOSE_BRACKET":12,"PLUS":13,"MINUS":14,"TIMES":15,"DIVIDE":16,"POW":17,"$accept":0,"$end":1},
+symbols_: {"error":2,"formula":3,"expression":4,"EOF":5,"value":6,"number":7,"variable":8,"NUMBER":9,"VARIABLE":10,"OPEN_BRACKET":11,"CLOSE_BRACKET":12,"PLUS":13,"MINUS":14,"TIMES":15,"DIVIDE":16,"POW":17,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"EOF",9:"NUMBER",10:"VARIABLE",11:"OPEN_BRACKET",12:"CLOSE_BRACKET",13:"PLUS",14:"MINUS",15:"TIMES",16:"DIVIDE",17:"POW"},
 productions_: [0,[3,2],[6,1],[6,1],[7,1],[8,1],[4,3],[4,1],[4,3],[4,3],[4,3],[4,3],[4,3]],
 performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
@@ -14,7 +14,7 @@ case 1:
 
         var file_name = process.argv.slice(2) + ".js";
 
-        var content = "var _f = require('formulelib');console.log("+$$[$0-1]+".toString());";
+        var content = "var _f = require('formulalib');console.log("+$$[$0-1]+".toString());";
 
         fs.writeFile(file_name, content, function(err) {
             if(err) {
@@ -37,7 +37,7 @@ case 5: this.$ = '"' + $$[$0] + '"'
 break;
 case 6: this.$ = '(' + $$[$0-1] + ')' 
 break;
-case 7: this.$ = '(new _f.Formule(' + $$[$0] + '))' 
+case 7: this.$ = '(new _f.Formula(' + $$[$0] + '))' 
 break;
 case 8: this.$ = $$[$0-2] + ".add(" + $$[$0] + ")" 
 break;
@@ -369,9 +369,9 @@ function Parser () { this.yy = {}; }Parser.prototype = parser;parser.Parser = Pa
 return new Parser;
 })();
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
-exports.parser = formule;
-exports.Parser = formule.Parser;
-exports.parse = function () { return formule.parse.apply(formule, arguments); }
+exports.parser = formula;
+exports.Parser = formula.Parser;
+exports.parse = function () { return formula.parse.apply(formula, arguments); }
 exports.main = function commonjsMain(args) {
     if (!args[1])
         throw new Error('Usage: '+args[0]+' FILE');

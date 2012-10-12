@@ -1,0 +1,30 @@
+{
+  "name": "formula",
+  "version": "0.0.1beta",
+  "description": "Basic formulas interpreter.",
+  "main": "formula.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bfontaine/FormulaJS.git"
+  },
+  "files": [
+      "formulalib.js",
+      "formula.js"
+  ],
+  "bin": {
+    "formula" : "./formula.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bfontaine/FormulaJS/issues"
+  },
+  "keywords": [
+    "formula",
+    "maths"
+  ],
+  "homepage":"https://github.com/bfontaine/FormulaJS#readme",
+  "author": "Baptiste Fontaine",
+  "license": "MIT"
+}

@@ -14,7 +14,7 @@ case 1:
 
         var file_name = process.argv.slice(2) + ".js";
 
-        var content = "var _f = require('./formulelib');console.log("+$$[$0-1]+".toString());";
+        var content = "var _f = require('formulelib');console.log("+$$[$0-1]+".toString());";
 
         fs.writeFile(file_name, content, function(err) {
             if(err) {

@@ -12,10 +12,11 @@
   },
   "files": [
       "formulalib.js",
-      "formula.js"
+      "formula.js",
+      "formula-cli.js"
   ],
   "bin": {
-    "formula" : "./formula.js"
+    "formula" : "./formula-cli.js"
   },
   "bugs": {
     "url": "https://github.com/bfontaine/FormulaJS/issues"

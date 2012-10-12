@@ -35,9 +35,7 @@
 %start formula
 
 %{
-    // don’t forget to do
-    // export NODE_PATH="$NODE_PATH:."
-    var _f = require('formulalib');
+    var _f = require('./formulalib');
 %}
 
 %%

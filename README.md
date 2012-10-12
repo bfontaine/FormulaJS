@@ -3,6 +3,14 @@ FormulaJS
 
 This is an interpreter for basic formulas, currently under development.
 
+Install
+-------
+
+```sh
+(sudo) npm install formula    # local
+(sudo) npm install -g formula # global
+```
+
 Features
 --------
 

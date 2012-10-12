@@ -74,17 +74,23 @@ variable
 
 expression
     : 'OPEN_BRACKET' expression 'CLOSE_BRACKET'
-        { $$ = $2 }
+        { $$ = '(' + $2 + ')' }
+    
     | value
-        { $$ = '(new Formule('+$1+'))' }
+        { $$ = '(new _f.Formule(' + $1 + '))' }
+    
     | expression 'PLUS' expression
         { $$ = $1 + ".add(" + $3 + ")" }
+    
     | expression 'MINUS' expression
         { $$ = $1 + ".minus(" + $3 + ")" }
+    
     | expression 'TIMES' expression
         { $$ = $1 + ".times(" + $3 + ")" }
+    
     | expression 'DIVIDE' expression
         { $$ = $1 + ".divided_by(" + $3 + ")" }
+    
     | expression 'POW' expression
         { $$ = $1 + ".pow(" + $3 + ")" }
     ;

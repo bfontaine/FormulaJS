@@ -35,9 +35,9 @@ case 4: this.$ = $$[$0]
 break;
 case 5: this.$ = '"' + $$[$0] + '"' 
 break;
-case 6: this.$ = $$[$0-1] 
+case 6: this.$ = '(' + $$[$0-1] + ')' 
 break;
-case 7: this.$ = '(new Formule('+$$[$0]+'))' 
+case 7: this.$ = '(new _f.Formule(' + $$[$0] + '))' 
 break;
 case 8: this.$ = $$[$0-2] + ".add(" + $$[$0] + ")" 
 break;

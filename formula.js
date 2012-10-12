@@ -12,15 +12,15 @@ switch (yystate) {
 case 1: 
         var fs = require('fs');
 
-        var file_name = process.argv.slice(2) + ".js";
+        var file_name = process.argv.slice(2) + '.js';
 
-        var content = "var _f = require('formulalib');console.log("+$$[$0-1]+".toString());";
+        var content = "var _f = require('formulalib');console.log("+$$[$0-1]+'.toString());';
 
         fs.writeFile(file_name, content, function(err) {
             if(err) {
                 console.log(err);
             } else {
-                console.log("Success, saved in "+ file_name + ".");
+                console.log('Success, saved in '+ file_name + '.');
             }
         }); 
 
@@ -39,15 +39,15 @@ case 6: this.$ = '(' + $$[$0-1] + ')'
 break;
 case 7: this.$ = '(new _f.Formula(' + $$[$0] + '))' 
 break;
-case 8: this.$ = $$[$0-2] + ".add(" + $$[$0] + ")" 
+case 8: this.$ = $$[$0-2] + '.add(' + $$[$0] + ')' 
 break;
-case 9: this.$ = $$[$0-2] + ".minus(" + $$[$0] + ")" 
+case 9: this.$ = $$[$0-2] + '.minus(' + $$[$0] + ')' 
 break;
-case 10: this.$ = $$[$0-2] + ".times(" + $$[$0] + ")" 
+case 10: this.$ = $$[$0-2] + '.times(' + $$[$0] + ')' 
 break;
-case 11: this.$ = $$[$0-2] + ".divided_by(" + $$[$0] + ")" 
+case 11: this.$ = $$[$0-2] + '.divided_by(' + $$[$0] + ')' 
 break;
-case 12: this.$ = $$[$0-2] + ".pow(" + $$[$0] + ")" 
+case 12: this.$ = $$[$0-2] + '.pow(' + $$[$0] + ')' 
 break;
 }
 },

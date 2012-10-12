@@ -39,15 +39,15 @@ formula
       { 
         var fs = require('fs');
 
-        var file_name = process.argv.slice(2) + ".js";
+        var file_name = process.argv.slice(2) + '.js';
 
-        var content = "var _f = require('formulalib');console.log("+$1+".toString());";
+        var content = "var _f = require('formulalib');console.log("+$1+'.toString());';
 
         fs.writeFile(file_name, content, function(err) {
             if(err) {
                 console.log(err);
             } else {
-                console.log("Success, saved in "+ file_name + ".");
+                console.log('Success, saved in '+ file_name + '.');
             }
         }); 
 
@@ -78,20 +78,20 @@ expression
     
     | value
         { $$ = '(new _f.Formula(' + $1 + '))' }
-    
+
     | expression 'PLUS' expression
-        { $$ = $1 + ".add(" + $3 + ")" }
+        { $$ = $1 + '.add(' + $3 + ')' }
     
     | expression 'MINUS' expression
-        { $$ = $1 + ".minus(" + $3 + ")" }
+        { $$ = $1 + '.minus(' + $3 + ')' }
     
     | expression 'TIMES' expression
-        { $$ = $1 + ".times(" + $3 + ")" }
+        { $$ = $1 + '.times(' + $3 + ')' }
     
     | expression 'DIVIDE' expression
-        { $$ = $1 + ".divided_by(" + $3 + ")" }
+        { $$ = $1 + '.divided_by(' + $3 + ')' }
     
     | expression 'POW' expression
-        { $$ = $1 + ".pow(" + $3 + ")" }
+        { $$ = $1 + '.pow(' + $3 + ')' }
     ;
 

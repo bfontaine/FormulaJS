@@ -1,7 +1,8 @@
 FormulaJS
 =========
 
-This is an interpreter for basic formulas, currently under development.
+This is an interpreter for basic formulas, based on an original idea by
+[@tsalmon](//github.com/tsalmon/mybadmaths).
 
 Install
 -------

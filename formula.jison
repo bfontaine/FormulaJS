@@ -11,6 +11,8 @@
 
 \b[a-z]\b               return 'VARIABLE'
 
+\b[A-Z]+\b              return 'CONSTANT'
+
 "+"                     return 'PLUS'
 [-−]                    return 'MINUS'
 [*×⋅]                   return 'TIMES' 
@@ -43,7 +45,7 @@
 formula
   : expression EOF
       { 
-        console.log($1.toString());
+        return $1.toString();
       }
   ;
 
@@ -51,6 +53,8 @@ value
     : number
         { $$ = $1 }
     | variable
+        { $$ = $1 }
+    | constant
         { $$ = $1 }
     ;
 
@@ -62,6 +66,11 @@ number
 variable
     : 'VARIABLE'
         { $$ = "$1" }
+    ;
+
+constant
+    : 'CONSTANT'
+        { $$ = (new _f.Formula($1, true)) }
     ;
 
 bracket_expression

@@ -1,18 +1,37 @@
 
-var Formula = function(arg) {
+var constants = {
+    E  : Math.E,
+    PI : Math.PI
+};
 
-    var number = 'number',
+var Formula = function(arg, cst) {
+
+    this.is_formula = true;
+
+    if (cst && arg in constants) {
+        arg = constants[arg];
+    }
+
+    var number   = 'number',
+        constant = 'constant',
         variable = 'variable';
 
     if (typeof arg === 'number') {
-        this.type = number;
+        this.type  = number;
         this.value = arg;
-        this.name = ''+arg;
+        this.name  = ''+arg;
     }
     else if (typeof arg === 'string') {
-        this.type = variable;
+        this.type  = cst ? constant : variable;
         this.value = undefined;
-        this.name = arg;
+        this.name  = arg;
+    }
+    else if ((typeof arg === 'object') && arg.is_formula) {
+        for (var key in arg) {
+            if (arg.hasOwnProperty(key)) {
+                this[key] = arg[key];
+            }
+        }
     }
     else {
         throw new Error(''+arg+" is not a valid formula.");

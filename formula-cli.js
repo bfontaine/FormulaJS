@@ -2,6 +2,7 @@
 
 var f    = require('./formula'),
     fs   = require('fs'),
+    path = require('path'),
     args = process.argv,
     source;
 
@@ -12,8 +13,10 @@ if (args.length === 1) {
     process.exit(-1);
 }
 
-if (args[1] && fs.existsSync(args[1])) {
-    source = fs.readFileSync(require('path').resolve(args[1]), "utf8");
+var possible_file = path.resolve(args[1]);
+
+if (args[1] && fs.existsSync(possible_file)) {
+    source = fs.readFileSync(possible_file, "utf8");
 }
 else {
     source = args.slice(1).join(' ');

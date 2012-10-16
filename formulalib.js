@@ -37,7 +37,7 @@ var Formula = function(arg, cst) {
         throw new Error(''+arg+" is not a valid formula.");
     }
 
-    this.op = function op(other, fn) {
+    this.op = function op(fn, other) {
         if ((this.value !== undefined) && (other.value !== undefined)) {
             this.value = fn(this.value, other.value);
             return this;
@@ -48,21 +48,11 @@ var Formula = function(arg, cst) {
         // non computable formulas
     };
 
-    this.add = function(other) {
-        return this.op(other, function sum(a,b){return a+b});
-    };
-    this.minus = function(other) {
-        return this.op(other, function substraction(a,b){return a-b})
-    };
-    this.times = function(other) {
-        return this.op(other, function times(a,b){return a*b})
-    };
-    this.divided_by = function(other) {
-        return this.op(other, function divide(a,b){return a/b})
-    };
-    this.pow = function(other) {
-        return this.op(other, Math.pow.bind(Math));
-    };
+    this.add        = this.op.bind(this, function sum(a,b){return a+b});
+    this.minus      = this.op.bind(this, function substraction(a,b){return a-b});
+    this.times      = this.op.bind(this, function times(a,b){return a*b});
+    this.pow        = this.op.bind(this, Math.pow.bind(Math));
+    this.divided_by = this.op.bind(this, function divide(a,b){return a/b});
 
     this.compute = function compute() {
         if (this.type === 'number')

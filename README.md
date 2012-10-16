@@ -12,12 +12,21 @@ Install
 (sudo) npm install -g formula # global
 ```
 
+Usage
+-----
+
+```sh
+formula <file>
+```
+
 Features
 --------
 
 * Floats & integers, negative and positive numbers
 * basic operations (`+`, `-`, `/`, `*`) and power (`^`)
-
+* constants (`E`, `PI`)
+* some syntaxic sugar (e.g. `(…)(…)` instead of `(…)*(…)`), various alternatives
+  for some operations (e.g. `⋅` or `×` instead of `*`, `÷` instead of `/`).
 
 Formula Examples
 ----------------

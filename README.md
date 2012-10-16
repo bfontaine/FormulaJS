@@ -28,6 +28,10 @@ Features
 * some syntaxic sugar (e.g. `(…)(…)` instead of `(…)*(…)`), various alternatives
   for some operations (e.g. `⋅` or `×` instead of `*`, `÷` instead of `/`).
 
+
+In the future, FormulaJS will be able to handle unknow variables and more
+functions (log, cos/sin/tan, etc).
+
 Formula Examples
 ----------------
 

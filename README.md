@@ -17,6 +17,7 @@ Usage
 
 ```sh
 formula <file>
+formula <formula>
 ```
 
 Features
@@ -32,11 +33,11 @@ Features
 In the future, FormulaJS will be able to handle unknow variables and more
 functions (log, cos/sin/tan, etc).
 
-Formula Examples
-----------------
+Examples
+--------
 
-```
--2+3
-((42-5)(12*3+2))^3
-3.1415*18
+```sh
+formula -2+3                 # 1
+formula "((42-5)(12*3+2))^3" # 2779431416
+formula PI*1.5               # 4.71238898038469
 ```

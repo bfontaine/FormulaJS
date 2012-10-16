@@ -1,9 +1,57 @@
+/**
+ * FormulaLib.js – This file is part of FormulaJS
+ *
+ * Author: Baptiste Fontaine
+ * Licence: MIT
+ * URL: https://github.com/bfontaine/FormulaJS
+ *
+ * This contains the standard library of FormulaJS, the parser/interpreter
+ * cannot work without it.
+ *
+ **/
 
 var constants = {
     E  : Math.E,
     PI : Math.PI
 };
 
+var ops = {
+    sum       : function (a,b) { return a+b },
+    substract : function (a,b) { return a-b },
+    times     : function (a,b) { return a*b },
+    divide    : function (a,b) { return a/b },
+
+    pow       : Math.pow.bind(Math)
+};
+
+/* 
+ * When a formula has one or more unknown values in it,
+ * this is used as a (binary) tree of operations to represent it,
+ * e.g.:
+ *    x+2:
+ *         ops.sum
+ *        /   \
+ *       x     2
+ */
+var Operation = function(op, left, right) {
+    if ((left.value !== undefined) && (right.value !== undefined)) {
+        return new Formula(op(left, right));
+    }
+
+    this.is_operation = true;
+
+    this.op = op;
+    this.left = left;
+    this.right = right;
+
+    //TODO
+};
+
+/*
+ * Formula – The main object of the library. Only this object is exported.
+ *
+ * cst: true if `arg` is a constant
+ */
 var Formula = function(arg, cst) {
 
     this.is_formula = true;
@@ -45,14 +93,14 @@ var Formula = function(arg, cst) {
 
 
         // TODO use a tree to store variables & numbers, i.e.
-        // non computable formulas
+        // non computable formulas (cf Operation)
     };
 
-    this.add        = this.op.bind(this, function sum(a,b){return a+b});
-    this.minus      = this.op.bind(this, function substraction(a,b){return a-b});
-    this.times      = this.op.bind(this, function times(a,b){return a*b});
-    this.pow        = this.op.bind(this, Math.pow.bind(Math));
-    this.divided_by = this.op.bind(this, function divide(a,b){return a/b});
+    this.add        = this.op.bind(this, ops.sum);
+    this.minus      = this.op.bind(this, ops.substract);
+    this.times      = this.op.bind(this, ops.times);
+    this.pow        = this.op.bind(this, ops.pow);
+    this.divided_by = this.op.bind(this, ops.divide);
 
     this.compute = function compute() {
         if (this.type === 'number')

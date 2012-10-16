@@ -1,6 +1,6 @@
 {
   "name": "formula",
-  "version": "0.0.1beta3",
+  "version": "0.0.2beta",
   "description": "Basic formulas interpreter.",
   "main": "formula.js",
   "directories": {

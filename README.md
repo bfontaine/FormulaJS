@@ -3,6 +3,8 @@
 This is an interpreter for basic formulas, based on an original idea by
 @tsalmon.
 
+Note: this is an old, unmaintained project.
+
 ## Usage
 
     formula <file>
